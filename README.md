@@ -4,15 +4,6 @@
 
 Memoteca é um aplicativo organizador de pensamentos e frases que permite cadastrar, listar, editar e deletar pensamentos, incluindo informações como conteúdo e autoria.
 
-## 🔨 Funcionalidades do projeto
-
-`Cadastro de pensamentos`: Permite adicionar novos pensamentos à lista, inserindo informações como conteúdo e autoria.
-
-`Listagem de pensamentos`: Exibe os pensamentos cadastrados, permitindo visualizar o texto e a autoria.
-
-`Edição de pensamentos`: Permite editar pensamentos existentes, atualizando as informações conforme necessário.
-
-`Exclusão de pensamentos`: Permite remover pensamentos da lista.
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
@@ -29,9 +20,6 @@ Memoteca é um aplicativo organizador de pensamentos e frases que permite cadast
 `CSS`: Utilizado para estilização da interface do aplicativo.
 
 
-## 📁 Link do Figma
-
-Você pode [acessar o figma do projeto aqui](https://www.figma.com/design/Sz1gmmemxqcB3amInL4Ndp/Rebrand-Memoteca-%7C-Curso-CRUD?node-id=148-26&t=FpdmfbiM1i1s6REQ-0).
 
 ## 🛠️ Abrir e rodar o projeto
 
@@ -52,9 +40,3 @@ npm start
 Acesse o backend localmente em seu navegador:
 
 http://localhost:3000
-
-Para executar o frontend, abra o projeto no Visual Studio Code. Com a extensão Live Server instalada, clique com o botão direito no arquivo index.html e selecione "Open with Live Server" no menu de contexto.
-
-Acesse o frontend localmente em seu navegador:
-
-http://localhost:5500
