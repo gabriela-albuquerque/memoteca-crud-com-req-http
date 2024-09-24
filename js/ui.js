@@ -26,7 +26,7 @@ const ui = {
         const pensamentoConteudo = document.createElement("div");
         pensamentoConteudo.textContent = pensamento.conteudo;
         pensamentoConteudo.classList.add("pensamento-conteudo");
-        
+
         const pensamentoAutoria = document.createElement("div");
         pensamentoAutoria.textContent = pensamento.autoria;
         pensamentoAutoria.classList.add("pensamento-autoria");
@@ -35,7 +35,13 @@ const ui = {
         li.appendChild(pensamentoConteudo)
         li.appendChild(pensamentoAutoria)
         listaPensamentos.appendChild(li);
+    },
+
+    limparFormulario () {
+        document.getElementById("pensamento-form").reset();
     }
 }
+
+
 
 export default ui;
