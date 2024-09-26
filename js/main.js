@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.renderizarPensamentos();
 
     const formularioPensamento = document.getElementById("pensamento-form");
-    formularioPensamento.addEventListener("submit", manipularSubmissaoFormulario);
-
     const botaoCancelar = document.getElementById("botao-cancelar");
+    const inputBusca = document.getElementById("campo-busca");
+
+    formularioPensamento.addEventListener("submit", manipularSubmissaoFormulario);
     botaoCancelar.addEventListener("click", manipularCancelamento);
+    inputBusca.addEventListener("input", manipularBusca);
 })
 
     async function manipularSubmissaoFormulario (event) {
@@ -32,4 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function manipularCancelamento () {
     ui.limparFormulario();
+}
+
+async function manipularBusca() {
+    const termoDeBusca = document.getElementById("campo-busca").value;
+    try {
+        const pensamentosFiltrados = await api.buscarPensamentoPorTermo(termoDeBusca);
+        ui.renderizarPensamentos(pensamentosFiltrados);
+    } catch (error) {
+        alert("Erro ao realizar busca")
+    }
 }

@@ -8,19 +8,25 @@ const ui = {
         document.getElementById("pensamento-autoria").value = pensamento.autoria;
     },
 
-    async renderizarPensamentos() {
+    async renderizarPensamentos(pensamentosFiltrados = null) {
         const listaPensamentos = document.getElementById("lista-pensamentos");
         const mensagemVazia = document.getElementById("mensagem-vazia");
         listaPensamentos.innerHTML = "";
 
         try {
-            const pensamentos = await api.buscarPensamentos()
+            let pensamentosParaRenderizar
 
-            if (pensamentos.length === 0) {
+            if (pensamentosFiltrados) {
+                pensamentosParaRenderizar = pensamentosFiltrados;
+            } else {
+                pensamentosParaRenderizar = await api.buscarPensamentos();
+            }
+    
+            if (pensamentosParaRenderizar.length === 0) {
                 mensagemVazia.style.display = "block";
             } else {
                 mensagemVazia.style.display = "none";
-                pensamentos.forEach(ui.adicionarPensamenoNaLista);
+                pensamentosParaRenderizar.forEach(ui.adicionarPensamenoNaLista);
             }
         } catch {
             alert('Erro ao renderizar pensamentos')
