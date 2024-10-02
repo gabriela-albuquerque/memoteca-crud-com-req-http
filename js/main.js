@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = document.getElementById("pensamento-id").value;
         const conteudo = document.getElementById("pensamento-conteudo").value;
         const autoria = document.getElementById("pensamento-autoria").value;
-        const data = document.getElementById("pensamento-data");
+        const data = document.getElementById("pensamento-data").value;
 
         if (!validarData(data)) {
             alert("Não é permitido o cadastro de datas futuras. Selecione outra data.")
@@ -54,5 +54,6 @@ async function manipularBusca() {
 function validarData (data) {
     const dataAtual = new Date();
     const dataInserida = new Date(data);
+    console.log([dataAtual, dataInserida])
     return dataInserida <= dataAtual;
 }
