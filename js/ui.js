@@ -6,6 +6,7 @@ const ui = {
         document.getElementById("pensamento-id").value = pensamento.id;
         document.getElementById("pensamento-conteudo").value = pensamento.conteudo;
         document.getElementById("pensamento-autoria").value = pensamento.autoria;
+        document.getElementById("pensamento-data").value = pensamento.data;
     },
 
     async renderizarPensamentos(pensamentosFiltrados = null) {
@@ -47,6 +48,11 @@ const ui = {
         const pensamentoConteudo = document.createElement("div");
         pensamentoConteudo.textContent = pensamento.conteudo;
         pensamentoConteudo.classList.add("pensamento-conteudo");
+
+        const pensamentoData = document.createElement("div");
+        const dataFormatada = pensamento.data.toLocaleDateString('pt-BR');
+        pensamentoData.textContent = dataFormatada;
+        pensamentoData.classList.add("pensamento-data");
 
         const pensamentoAutoria = document.createElement("div");
         pensamentoAutoria.textContent = pensamento.autoria;
@@ -103,6 +109,7 @@ const ui = {
         li.appendChild(iconeAspas);
         li.appendChild(pensamentoConteudo);
         li.appendChild(pensamentoAutoria);
+        li.appendChild(pensamentoData);
         li.appendChild(icones);
         listaPensamentos.appendChild(li);
     },
