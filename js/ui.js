@@ -6,7 +6,9 @@ const ui = {
         document.getElementById("pensamento-id").value = pensamento.id;
         document.getElementById("pensamento-conteudo").value = pensamento.conteudo;
         document.getElementById("pensamento-autoria").value = pensamento.autoria;
-        document.getElementById("pensamento-data").value = pensamento.data;
+        document.getElementById("pensamento-data").value = pensamento.data.
+        toISOString().split("T")[0];
+        document.getElementById("form-container").scrollIntoView();
     },
 
     async renderizarPensamentos(pensamentosFiltrados = null) {
@@ -50,7 +52,15 @@ const ui = {
         pensamentoConteudo.classList.add("pensamento-conteudo");
 
         const pensamentoData = document.createElement("div");
-        const dataFormatada = pensamento.data.toLocaleDateString('pt-BR');
+
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            timeZone: 'UTC'
+        }
+        const dataFormatada = pensamento.data.toLocaleDateString('pt-BR', options);
         pensamentoData.textContent = dataFormatada;
         pensamentoData.classList.add("pensamento-data");
 
